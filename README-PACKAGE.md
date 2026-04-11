@@ -1,5 +1,10 @@
 # LUMEN³ — Vollständiges Paket | Stand 11. April 2026
 
+> **Neu hier?** Lies zuerst **[README.md](README.md)** (Framework-Übersicht) oder
+> **[GETTING-STARTED.md](GETTING-STARTED.md)** (Schritt-für-Schritt-Anleitung für
+> komplette Einsteiger). Dieses Dokument ist die Paket-Referenz für bestehende
+> Nutzer, die Updates einspielen.
+
 ## Status: Sprint 3 (Creative Footprint) abgeschlossen
 
 Sprint 1 (Refactor), Sprint 2 (Memory-System) und Sprint 3 (Creative Footprint)
