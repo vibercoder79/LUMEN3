@@ -12,6 +12,10 @@ LUMEN³ führt durch den vollständigen Markenentwicklungsprozess: von der Wettb
 
 LUMEN³ ist **7 Claude-Code-Skills** in **3 Stufen** (Context, Signal, Resonance), die gemeinsam eine vollständige Brand Identity Library für bestehende oder neue Marken erstellen — mit wissenschaftlich begründeten Methoden, transparenten Quellen und deterministischem Scoring.
 
+### Pipeline Flow
+
+![LUMEN³ Pipeline Flow](diagrams/01-pipeline-flow.png)
+
 ## Die 7 Skills
 
 | Skill | Trigger | Dauer | Was er tut |
@@ -29,6 +33,8 @@ Einstiegspunkt ist immer `/lumen-strategist` — der Orchestrator, der den Proje
 ## Was am Ende entsteht
 
 Nach einem vollständigen Durchlauf liegen fünf Deliverables vor:
+
+![LUMEN³ Deliverables](diagrams/03-deliverables.png)
 
 - **`brand-universe.md`** — das Stratege-Dokument
 - **`slides-brand-universe.md`** — 31-Slide Track-Deck für die Präsentation
@@ -76,6 +82,10 @@ claude mcp add playwright -- npx -y @playwright/mcp@latest
 
 Details in [`README-PACKAGE.md`](README-PACKAGE.md).
 
+## Architektur
+
+![LUMEN³ Architektur](diagrams/02-architecture.png)
+
 ## Repository-Struktur
 
 ```
@@ -88,6 +98,11 @@ LUMEN3/
 ├── artefact-templates.md        ← Schemas & Layouts
 ├── methodology.md               ← wissenschaftliche Quellen
 ├── trigger-mapping.md           ← deterministisches Scoring
+│
+├── diagrams/
+│   ├── 01-pipeline-flow.png     ← Pipeline Flow (7 Skills, 3 Stufen)
+│   ├── 02-architecture.png      ← Architektur & Single Sources of Truth
+│   └── 03-deliverables.png      ← Deliverables & Zielgruppen
 │
 ├── scripts/
 │   └── analyze_page.py          ← SEO-/Marketing-Analyzer (MIT)
