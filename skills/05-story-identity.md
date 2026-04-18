@@ -32,10 +32,14 @@ description: >
 
   Output:
   - 05-story-identity.md (Schema 05 aus artefact-templates.md)
-  - slides-story.md (Slide-Set für Skill 05)
+  - slides-story.md (Slide-Set für Skill 05 — für Claude Design Rendering)
   - Miro Board: Golden Circle Frame + Story/Tonality Frame (falls aktiv)
 
-  Version 1.4 — April 2026
+  Rendering: slides-story.md wird (nach Skill 06) zusammen mit
+  design-brief.md an Claude Design (Anthropic, seit 2026-04-17)
+  übergeben für PPTX/PDF/Canva-Export im Corporate-Design.
+
+  Version 1.5 — April 2026 (Claude-Design-Integration)
 ---
 
 # LUMEN² — Story, Identity, Tonality

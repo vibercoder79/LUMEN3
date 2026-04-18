@@ -27,12 +27,17 @@ description: >
   Output:
   - 06-brand-universe.md (Schema 06 aus artefact-templates.md)
   - slides-brand-universe.md (Owlist Track-Deck, 31 Slides)
-  - design-brief.md (Input für Website Creator / Webflow)
+  - design-brief.md (Input für Claude Design / Website Creator / Webflow,
+    enthält strukturierten Design-System-Block)
   - brand-context.md (maschinenlesbarer Connector)
   - brand-guidelines.md (Tone, Typografie, Farben im Anthropic-Format)
   - Miro Board: Brand Universe Summary Frame (falls aktiv)
 
-  Version 1.4 — April 2026 (Memory-Integration)
+  Rendering-Pipeline: slides-brand-universe.md + brand-context.md werden
+  an Claude Design (Anthropic, seit 2026-04-17) übergeben — erzeugt
+  PPTX/PDF/Canva im Corporate-Design automatisch.
+
+  Version 1.5 — April 2026 (Claude-Design-Integration)
 ---
 
 # LUMEN³ — Brand Universe Document
@@ -384,17 +389,120 @@ Fuss: "Dominante Aaker-Dimension: [NAME]"
 
 ## OUTPUT 3 — design-brief.md
 
-Kompakter Design-Brief für den Website Creator (Webflow). Enthält:
-- Brand Name, Tagline, WHY Statement
-- Neuro-Color Palette (alle Hex aus Skill 05 B4)
-- Typografie-Charakter (Headline / Body / Accent)
-- Bildsprache-Regeln (5 × zeigen / 5 × zeigen nie)
-- Mood Board Prompt (für Midjourney/DALL-E/Claude)
-- Homepage-Struktur (5 Boxen: HERO / TRUST / SERVICES / PROOF / CTA)
-- Trigger-basierte Messaging-Empfehlungen
+Operativer Design-Brief — dient zwei Zielen gleichzeitig:
 
-Kein zusätzliches Schema — dieses Dokument ist ein operatives
-Übergabe-Dokument, kein Schema-Output.
+1. **Input für Claude Design** (Anthropic, seit 2026-04-17) — der
+   strukturierte Design-System-Block unten wird direkt als Design-Token-
+   Kontext übergeben, damit Slides, One-Pager, Prototypes und Mockups
+   automatisch im Corporate-Design entstehen.
+2. **Input für Website Creator / Webflow** — Homepage-Struktur und
+   Messaging-Empfehlungen als Briefing.
+
+Enthält zwei Teile:
+
+### Teil A — Narrativ (für Mensch und Website Creator)
+- Brand Name, Tagline, WHY Statement
+- Bildsprache-Regeln (5 × zeigen / 5 × zeigen nie)
+- Mood Board Prompt (für Midjourney/DALL-E/Claude/Nano Banana)
+- Homepage-Struktur (5 Boxen: HERO / TRUST / SERVICES / PROOF / CTA)
+- Trigger-basierte Messaging-Empfehlungen (Primary/Secondary/Dormant)
+
+### Teil B — Design System Block (für Claude Design)
+
+Strukturiert als YAML-Block, damit Claude Design den Kontext
+maschinenlesbar parsen kann:
+
+```yaml
+design_system:
+  brand_name: "[Brand Name]"
+  version: 1.0
+
+  colors:
+    primary: "#HEX"          # Neuro-Color Primary aus Skill 05 B4
+    secondary: "#HEX"        # Neuro-Color Secondary
+    accent: "#HEX"           # Neuro-Color Accent
+    background_light: "#HEX"
+    background_dark: "#HEX"
+    neutral_100: "#F8F8F8"
+    neutral_900: "#1A1A1A"
+    semantic_success: "#HEX"
+    semantic_warning: "#HEX"
+    semantic_error: "#HEX"
+
+  typography:
+    headline:
+      family: "[Font Name]"   # aus Skill 05 B4 Typografie
+      character: "[Beschreibung — z.B. modern, geometrisch, bold]"
+      weight: 700
+      scale: [48, 40, 32, 24]   # H1, H2, H3, H4 in px (desktop)
+    body:
+      family: "[Font Name]"
+      character: "[Beschreibung]"
+      weight: 400
+      size: 16
+      line_height: 1.6
+    accent:
+      family: "[Font Name]"
+      character: "[Beschreibung]"
+      use_case: "[Zitate | Kleinschrift | Annotation]"
+
+  spacing:
+    base_unit: 8              # px
+    grid_columns: 12
+    section_padding_desktop: 96
+    section_padding_mobile: 48
+    container_max_width: 1280
+
+  radius:
+    small: 4
+    medium: 8
+    large: 16
+    pill: 999
+
+  components:
+    button_primary:
+      background: "primary"
+      text_color: "background_light"
+      radius: "medium"
+      padding: "12px 24px"
+    button_secondary:
+      border: "primary"
+      text_color: "primary"
+      background: "transparent"
+    card:
+      background: "background_light"
+      radius: "large"
+      shadow: "subtle"
+      padding: 24
+
+  imagery:
+    mood: "[1-Satz-Essenz der Bildsprache]"
+    do:
+      - "[Regel 1]"
+      - "[Regel 2]"
+      - "[Regel 3]"
+      - "[Regel 4]"
+      - "[Regel 5]"
+    dont:
+      - "[Anti-Regel 1]"
+      - "[Anti-Regel 2]"
+      - "[Anti-Regel 3]"
+      - "[Anti-Regel 4]"
+      - "[Anti-Regel 5]"
+
+  voice_in_design:
+    headline_tone: "[aus Tonalitäts-Profil Skill 05]"
+    microcopy_style: "[aus Tonalitäts-Profil Skill 05]"
+    address_form: "du|sie"
+    forbidden_words: [wort1, wort2, wort3]
+```
+
+**Wichtig:** Alle Werte stammen aus den Outputs der Skills 01–05 — keine
+neuen Entscheidungen. Fehlende Werte werden mit `TBD` markiert statt zu
+erfinden.
+
+Kein Schema-Output — dieses Dokument ist ein operatives Übergabe-Dokument
+mit definierter YAML-Struktur im Teil B.
 
 ---
 
@@ -482,6 +590,53 @@ folgenden Sections:
 
 ---
 
+## RENDERING MIT CLAUDE DESIGN
+
+Ab LUMEN³ 1.5 ist **Claude Design** (Anthropic, seit 2026-04-17) das
+empfohlene Rendering-Ziel für alle Slide-Outputs und visuellen Deliverables.
+
+### Handoff-Pattern
+
+Nach Abschluss von Skill 06 liegen drei Dateien vor, die zusammen an
+Claude Design übergeben werden:
+
+1. `slides-brand-universe.md` — Slide-Outline (Struktur + Inhalt)
+2. `design-brief.md` Teil B — Design-System-Block (YAML)
+3. `brand-context.md` — Tonalität, Trigger, Voice
+
+**Prompt-Template für Claude Design:**
+
+```
+Rendere die Slides aus slides-brand-universe.md im Design-System
+aus design-brief.md (Teil B). Nutze die Tonalität aus brand-context.md
+für alle Microcopy-Entscheidungen.
+
+Export-Ziele:
+- PPTX (Owlist intern)
+- PDF (Kunde, druckfertig)
+- Canva-Link (Kollaboration mit Kunde)
+```
+
+### Was Claude Design automatisch übernimmt
+
+- Farben aus `design_system.colors` (Neuro-Color-Palette)
+- Typografie aus `design_system.typography` (Headline/Body/Accent)
+- Spacing und Grid aus `design_system.spacing`
+- Button/Card-Komponenten aus `design_system.components`
+- Bildsprache-Leitplanken aus `design_system.imagery`
+- Tonalität und Voice aus `brand-context.voice`
+
+### Fallback (Claude Design nicht verfügbar)
+
+`slides-brand-universe.md` bleibt als strukturierter Markdown-Outline
+erhalten. Render-Optionen (absteigende Priorität):
+1. Lokaler `praesentation-builder` Skill (Python-pptx, Owlist-Template)
+2. Manuelle Erstellung in Keynote/PowerPoint mit `design-brief.md` als
+   Referenz
+3. Export nach Figma/Canva über design-brief.md Teil B
+
+---
+
 ## MIRO BOARD — Brand Universe Summary Frame (falls aktiv)
 
 Verwende Frame `brand-universe` aus `artefact-templates.md` Teil 3.
@@ -510,7 +665,8 @@ Brand Voice Score: [X/10]
 5 Deliverables erstellt:
 06-brand-universe.md      — Schema 06, vollständige Synthese
 slides-brand-universe.md  — Pflicht-Slides + erweiterter Track-Deck
-design-brief.md           — Input für Website Creator / Webflow
+design-brief.md           — Input für Claude Design + Website Creator
+                            (Teil A Narrativ, Teil B Design System YAML)
 brand-context.md          — Maschinenlesbarer Connector (YAML + Freitext)
 brand-guidelines.md       — Tone, Typografie, Farben, Formatting
 [Falls Miro aktiv:] brand-universe Frame auf [URL]
@@ -518,6 +674,8 @@ brand-guidelines.md       — Tone, Typografie, Farben, Formatting
 Der Brand Strategist hat seine Arbeit abgeschlossen.
 Die Marke hat ein vollständiges, dokumentiertes Universe.
 
+Übergabe Claude Design:    slides-brand-universe.md + design-brief.md
+                           (rendert PPTX/PDF/Canva im Corporate-Design)
 Übergabe Website Creator:  design-brief.md
 Übergabe Marketing Skills: brand-context.md
 Übergabe Content Team:     brand-guidelines.md

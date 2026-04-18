@@ -30,10 +30,14 @@ description: >
   - clients/[name]/outputs/00-competitive-analysis.md (Schema 00)
   - clients/[name]/competitive/[domain]/ (Screenshots, Logos, computed-styles.json, scores.json)
   - clients/[name]/competitive/_synthesis/farbrad.svg, fonts.svg, names.svg, taglines.svg
-  - clients/[name]/presentation/slides-competitive.md (optional)
+  - clients/[name]/presentation/slides-competitive.md (optional — für Claude Design Rendering)
   - Miro-Board competitive-grid (falls Miro MCP aktiv)
 
-  Version 2.0 — April 2026 (Enigma-Alignment)
+  Rendering: slides-competitive.md wird (nach Skill 06, falls erstellt)
+  zusammen mit design-brief.md an Claude Design (Anthropic, seit 2026-04-17)
+  übergeben für PPTX/PDF/Canva-Export im Corporate-Design.
+
+  Version 2.1 — April 2026 (Claude-Design-Integration)
 ---
 
 # LUMEN¹ — Creative Footprint Full Potential Analyse

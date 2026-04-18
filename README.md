@@ -4,7 +4,7 @@
 
 LUMEN³ führt durch den vollständigen Markenentwicklungsprozess: von der Wettbewerbsanalyse über Archetyp-Assessment und Neuromarketing-Trigger bis zum fertigen Brand Universe. Jeder Schritt ist dokumentiert, reproduzierbar und maschinenlesbar.
 
-**By:** [Owlist GmbH](https://www.owlist.ch) · **Version:** 2.0 · **April 2026**
+**By:** [Owlist GmbH](https://www.owlist.ch) · **Version:** 2.1 · **April 2026** (Claude-Design-Integration)
 
 ---
 
@@ -39,8 +39,22 @@ Nach einem vollständigen Durchlauf liegen fünf Deliverables vor:
 - **`brand-universe.md`** — das Stratege-Dokument
 - **`slides-brand-universe.md`** — 31-Slide Track-Deck für die Präsentation
 - **`brand-context.md`** — maschinenlesbarer Connector für nachgelagerte KI-Agents
-- **`design-brief.md`** — für Designer und Webflow-Creator
+- **`design-brief.md`** — strukturierter Design-System-Block (YAML) für **Claude Design**, Website Creator und Webflow
 - **`brand-guidelines.md`** — für Texter und interne Teams
+
+### Rendering mit Claude Design (ab 2026-04-17)
+
+![Claude Design Rendering Pipeline](diagrams/04-claude-design-rendering.png)
+
+Alle `slides-*.md` Outputs der Skills 02–06 werden zusammen mit `design-brief.md` an **Claude Design** (Anthropic Research Preview) übergeben — das Corporate-Design wird automatisch angewandt, Export nach PPTX, PDF oder Canva. Kein lokales pptx-Rendering mehr nötig.
+
+```
+Prompt an Claude Design:
+Rendere die Slides aus slides-brand-universe.md im Design-System aus
+design-brief.md (Teil B). Export: PPTX, PDF, Canva-Link.
+```
+
+Fallback ohne Claude Design: lokaler `praesentation-builder` Skill oder manuelle Übernahme in Keynote/PowerPoint — `slides-*.md` bleibt als portable Markdown-Outline bestehen.
 
 ## Für wen LUMEN³ gedacht ist
 

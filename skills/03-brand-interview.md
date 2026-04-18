@@ -15,9 +15,13 @@ description: >
   Output:
   - 03-brand-interview.md (Schema 03 aus artefact-templates.md)
   - Miro Board mit 4 Frames (wenn Miro MCP aktiv)
-  - slides-we-are-not.md (Slide-Set für Skill 03)
+  - slides-we-are-not.md (Slide-Set für Skill 03 — für Claude Design Rendering)
 
-  Version 1.4 — April 2026 (Memory-Pilot)
+  Rendering: slides-we-are-not.md wird (nach Skill 06) zusammen mit
+  design-brief.md an Claude Design (Anthropic, seit 2026-04-17)
+  übergeben für PPTX/PDF/Canva-Export im Corporate-Design.
+
+  Version 1.5 — April 2026 (Claude-Design-Integration)
 ---
 
 # LUMEN² — Brand Interview: We Are / We Are Not
