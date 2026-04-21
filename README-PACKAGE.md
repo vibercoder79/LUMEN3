@@ -1,19 +1,34 @@
-# LUMEN³ — Vollständiges Paket | Stand 11. April 2026
+# LUMEN³ — Vollständiges Paket | Stand 21. April 2026
 
 > **Neu hier?** Lies zuerst **[README.md](README.md)** (Framework-Übersicht) oder
 > **[GETTING-STARTED.md](GETTING-STARTED.md)** (Schritt-für-Schritt-Anleitung für
 > komplette Einsteiger). Dieses Dokument ist die Paket-Referenz für bestehende
 > Nutzer, die Updates einspielen.
 
-## Status: Sprint 3 (Creative Footprint) abgeschlossen
+## Status: LUMEN³ v1.5 (21. April 2026) — Brand Visual System
 
-Sprint 1 (Refactor), Sprint 2 (Memory-System) und Sprint 3 (Creative Footprint)
-sind abgeschlossen. Skill 00 wurde vollständig an die Enigma Creative Footprint
-Methodik (2022) zurückgebaut — 123 kuratierte Datenpunkte in 5 Dimensionen
-(PESO + Owlist-Asset-Erweiterung), plus 4 visuelle Analyse-Module (Farbrad,
-Font-Tabelle, Namens-Archetypen, Tagline-Quadrant). `methodology.md` wurde um
-§6 erweitert (Dietrich PESO + Enigma), `artefact-templates.md` Schema 00 auf
-die Full Potential Struktur aktualisiert.
+**Neu in v1.5:** Skill 07 (`/lumen-visual-system`) überführt das strategische
+Brand Universe in ein vollständiges visuelles System — Logo-Varianten, Farb-/
+Typo-Tokens (Hex, Font-Familien, Scales), Icons, Print- und Digital-Applications,
+und abschliessend ein `DESIGN.md` im 10-Abschnitte-Format (über den externen
+Skill `design-md-generator`). Sechs Phasen sequenziell, Sonnet-Standard,
+Sub-Brand-Variante via `parent-brand`-Parameter, Memory-Block-Pflicht.
+
+**Erweitert:**
+- **Skill 06** (v1.5 → v1.6): Neue Section `visual_direction` in `brand-context.md`
+  liefert strategische Richtungen (color_bias, type_character, imagery_direction,
+  layout_rhythm, do/dont) — bewusst KEINE Hex-Werte oder Font-Namen. Diese
+  Konkretisierung passiert ausschliesslich in Skill 07.
+- **Skill 00** (v2.1 → v2.2): Neuer Sub-Schritt 5.7 aktiviert
+  `design-md-generator` pro gescraptem Wettbewerber und legt eine `DESIGN.md`
+  in `competitive/[domain]/` ab. Optional analog Miro-MCP.
+- **CLAUDE.md** (v1.4 → v1.5): Neue Verhaltensregel 13 (Visual-Tokens bleiben
+  bei Skill 07). Trigger-Tabelle um Skill 07 ergänzt.
+
+**Vorangegangene Sprints (unverändert):** Sprint 1 (Refactor), Sprint 2
+(Memory-System), Sprint 3 (Creative Footprint — 123 Datenpunkte Enigma),
+Sprint 4 (Claude-Design-Integration v2.1) — Details unter "Changelog-Chronik"
+weiter unten.
 
 Neu: Python-Helper `scripts/analyze_page.py` für SEO- und Marketing-Audit-
 Datenpunkte (MIT-lizenziert, adaptiert von zubair-trabzada/ai-marketing-claude).
@@ -24,8 +39,8 @@ Datenpunkte (MIT-lizenziert, adaptiert von zubair-trabzada/ai-marketing-claude).
 lumen3-package/
 ├── README-PACKAGE.md            ← Diese Datei
 │
-├── CLAUDE.md                    ← v1.4 (Memory-Prinzip ergänzt)
-├── artefact-templates.md        ← v1.2 (Schema 00 Full Potential)
+├── CLAUDE.md                    ← v1.5 (Verhaltensregel 13 + Skill 07 im Trigger-Index)
+├── artefact-templates.md        ← v1.2 (Schema 00 Full Potential, unverändert in v1.5)
 ├── methodology.md               ← v1.1 (§6 Dietrich PESO + Enigma ergänzt)
 ├── trigger-mapping.md           ← unverändert (Single Source of Truth)
 │
@@ -36,7 +51,7 @@ lumen3-package/
     ├── lumen-bootstrap.md                 v1.3 (unverändert)
     ├── lumen-strategist.md                v1.3+ (Memory-Status in Phase 1 + Variante B)
     ├── lumen-learn.md                     v1.0 (Helper, Memory-Mustererkennung)
-    ├── 00-competitive-analysis.md         v2.0 (NEU — Enigma Creative Footprint, 4 Phasen)
+    ├── 00-competitive-analysis.md         v2.2 (design-md-generator pro Wettbewerber, Schritt 5.7)
     ├── 00-datapoints.md                   v2.0 (NEU — 123 Datenpunkt-Definitionen)
     ├── 00-competitive-analysis.v1-backup.md  v1.0 (Backup, kann später entfernt werden)
     ├── 01-business-context.md             v1.4 (Memory Schritt 0 + 99)
@@ -44,14 +59,15 @@ lumen3-package/
     ├── 03-brand-interview.md              v1.4 (Memory-Pilot)
     ├── 04-trigger-analysis.md             v1.4 (Memory Schritt 0 + 99)
     ├── 05-story-identity.md               v1.4 (Memory Schritt 0 + 99)
-    └── 06-brand-universe.md               v1.4 (Memory-Integration, Freigabe-Mechanik)
+    ├── 06-brand-universe.md               v1.6 (Visual Direction Tokens in brand-context.md)
+    └── 07-brand-visual-system.md          v1.0 (NEU — Brand Visual System, 6 Phasen)
 ```
 
 ## Versions-Übersicht
 
 | Datei | Version | Status |
 |---|---|---|
-| CLAUDE.md | 1.4 | ✓ Memory-Prinzip |
+| **CLAUDE.md** | **1.5** | **✓ NEU Verhaltensregel 13 + Skill 07 im Trigger-Index** |
 | artefact-templates.md | 1.2 | ✓ Schema 00 Full Potential |
 | methodology.md | 1.1 | ✓ §6 Dietrich/Enigma |
 | trigger-mapping.md | unverändert | ✓ |
@@ -59,14 +75,15 @@ lumen3-package/
 | lumen-bootstrap.md | 1.3 | ✓ |
 | lumen-strategist.md | 1.3+ | ✓ Memory-Status |
 | lumen-learn.md | 1.0 | ✓ |
-| **00-competitive-analysis.md** | **2.0** | **✓ NEU Creative Footprint** |
-| **00-datapoints.md** | **2.0** | **✓ NEU 123 Datenpunkte** |
+| **00-competitive-analysis.md** | **2.2** | **✓ design-md-generator pro Wettbewerber (5.7)** |
+| 00-datapoints.md | 2.0 | ✓ 123 Datenpunkte |
 | 01-business-context.md | 1.4 | ✓ Memory |
 | 02-brand-archetype.md | 1.4 | ✓ Memory |
 | 03-brand-interview.md | 1.4 | ✓ Memory-Pilot |
 | 04-trigger-analysis.md | 1.4 | ✓ Memory |
 | 05-story-identity.md | 1.4 | ✓ Memory |
-| 06-brand-universe.md | 1.4 | ✓ Memory-Integration |
+| **06-brand-universe.md** | **1.6** | **✓ Visual Direction Tokens in brand-context.md** |
+| **07-brand-visual-system.md** | **1.0** | **✓ NEU — Brand Visual System, 6 Phasen** |
 
 ## Vier Single Sources of Truth (SoT)
 
