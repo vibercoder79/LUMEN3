@@ -37,7 +37,7 @@ description: >
   an Claude Design (Anthropic, seit 2026-04-17) übergeben — erzeugt
   PPTX/PDF/Canva im Corporate-Design automatisch.
 
-  Version 1.5 — April 2026 (Claude-Design-Integration)
+  Version 1.6 — April 2026 (Visual Direction Tokens für Skill-07-Kopplung)
 ---
 
 <!-- v1.1 (2026-04-21): Visual Direction Tokens ergänzt für Skill-07-Kopplung. Keine Hex-Werte, nur Richtungen. Siehe CHANGELOG in CLAUDE.md. -->
