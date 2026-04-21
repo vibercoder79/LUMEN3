@@ -37,7 +37,7 @@ description: >
   zusammen mit design-brief.md an Claude Design (Anthropic, seit 2026-04-17)
   übergeben für PPTX/PDF/Canva-Export im Corporate-Design.
 
-  Version 2.1 — April 2026 (Claude-Design-Integration)
+  Version 2.2 — April 2026 (design-md-generator-Integration pro Wettbewerber)
 ---
 
 # LUMEN¹ — Creative Footprint Full Potential Analyse
@@ -332,6 +332,48 @@ Fehlende Keys → Datenpunkt-Wert = 0, Kommentar in Output: "(nicht gemessen)".
 
 Bei Fehler: Konkrete Domain nennen, einmal retry, dann als "unvollständig"
 markieren und weitermachen. Kein Abbruch.
+
+### 5.7 Design-System-Dokumentation pro Wettbewerber (via design-md-generator)
+
+Für jeden gescrapten Wettbewerber aktiviere den externen Skill
+`design-md-generator` mit der jeweiligen Domain als Input. Der Skill
+extrahiert das visuelle Design-System der Website (Farben, Typografie,
+Spacing, Komponenten, Bildsprache) und schreibt das Ergebnis im
+10-Abschnitte-Format.
+
+**Aktivierungs-Prompt pro Wettbewerber:**
+
+```
+design-md-generator analysiere https://[domain]
+Ausgabe-Pfad: clients/[name]/competitive/[domain]/DESIGN.md
+Preview-HTMLs: clients/[name]/competitive/[domain]/preview/
+```
+
+**Outputs pro Wettbewerber:**
+- `clients/[name]/competitive/[domain]/DESIGN.md` — 10-Abschnitte-Format
+  (Brand Essence, Logo, Color, Typography, Iconography, Imagery, Layout,
+  Components, Voice, Applications)
+- `clients/[name]/competitive/[domain]/preview/` — Preview-HTMLs und
+  Extrakt-Screenshots, die der Generator miterzeugt
+
+**Warum doppelt zu Phase 2?** Phase 2 (Farbrad, Fonts, Namen, Taglines)
+ist **markt-relative Aggregation** über alle Wettbewerber. Die
+`DESIGN.md` pro Wettbewerber ist **absolute Dokumentation** eines
+einzelnen Wettbewerbers — nützlich als Mustervergleich für Skill 07
+(Brand Visual System), der explizit Abgrenzung vom Wettbewerbsumfeld
+einfordert.
+
+**Optionalität (analog Miro-MCP-Ausfall).** Wenn `design-md-generator`
+nicht verfügbar ist (nicht installiert, API-Fehler, Skill deaktiviert),
+läuft Skill 00 ohne Abbruch und ohne Warnung weiter. Die
+`competitive/[domain]/DESIGN.md`-Dateien fehlen dann einfach — Skill 07
+erkennt das Fehlen und läuft weiter ohne Mustervergleich-Block
+(Graceful Degradation).
+
+**Sub-Agent-Strategie.** Der Aufruf von `design-md-generator` pro
+Wettbewerber läuft parallel über Haiku-Sub-Agents (analog zum
+Playwright-Scraping in 5.1–5.5). Sonnet validiert am Ende die
+Vollständigkeit der erzeugten Dateien.
 
 ---
 
@@ -745,6 +787,7 @@ Weiter mit: /lumen-business-context — 40 Fragen Business Context Interview
 | Playwright-Scraping pro URL | Haiku | Rein mechanisch, parallel möglich |
 | Lighthouse-Run pro URL | Haiku | Mechanische Extraktion |
 | Python-Helper `analyze_page.py` | Haiku | Strukturierte Datenextraktion |
+| `design-md-generator` Aufruf pro Wettbewerber (Schritt 5.7) | Haiku | Mechanische Aktivierung eines externen Skills pro Domain |
 | Computed-Style-Konsolidierung (rgb→hex→HSL) | Haiku | Deterministische Transformation |
 | Datenpunkt-Scoring qualitativ (Phase 1 Assets-DPs) | Sonnet | Inhaltliche Einschätzung, Evidence-Schreibung |
 | Phase 2 Farbrad-Rendering | Haiku | SVG-Generation aus HSL-Koordinaten |
@@ -771,6 +814,7 @@ Overkill für deterministische Datenpunkt-Bewertung.
 | **Miro MCP** | Miro-Board | Schritt überspringen |
 | **Ahrefs API** (optional) | Backlink-Profil O.SE.04 | DP = 0 |
 | **Meta Ad Library** (public) | Paid-Channels P.CH.01–03 | DP = 0 |
+| **design-md-generator** (externer Skill) | 10-Abschnitte-DESIGN.md pro Wettbewerber (Schritt 5.7) | Schritt überspringen, kein Abbruch |
 
 **Lizenz-Hinweis:** Der Python-Helper `analyze_page.py` basiert auf Code aus
 `zubair-trabzada/ai-marketing-claude` unter MIT-Lizenz (Copyright 2026 Zubair
