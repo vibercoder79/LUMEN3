@@ -1,6 +1,6 @@
 # LUMEN³ — Brand Signal Framework
 ## by Owlist | www.owlist.ch
-## Version 1.4 | April 2026
+## Version 1.5 | April 2026
 
 ---
 
@@ -174,6 +174,7 @@ Details zum Block-Format, Status-Werten und Versions-Kopplung: `artefact-templat
 | /lumen-trigger           | skills/04-trigger-analysis.md   | Neuromarketing Trigger Analyse        |
 | /lumen-story             | skills/05-story-identity.md     | Story, Identity, Tonality             |
 | /lumen-universe          | skills/06-brand-universe.md     | Brand Universe (Abschlussdokument)    |
+| /lumen-visual-system     | skills/07-brand-visual-system.md | Brand Visual System (Logo, Tokens, DESIGN.md) |
 
 **Einstiegspunkt immer:** `/lumen-strategist`
 
@@ -224,6 +225,7 @@ lumen3/
 10. Schreibe nach Abschluss oder bewusstem Abbruch einen Memory-Block in `clients/[name]/memory.md` gemäss `artefact-templates.md` Teil 7. Nur Append, nie Edit.
 11. Bei Re-Run (Output-Datei existiert bereits): Lade in Schritt 0 die Memory-Blöcke der Vorgänger-Version, zeige sie dem Nutzer, frage nach Berücksichtigung. Keine automatische Anpassung ohne Bestätigung.
 12. Schreibe niemals Memory-Inhalte in einen Kunden-sichtbaren Output (Markdown, Slides, Miro, PDF). Weder Inhalt noch Hinweis auf Existenz.
+13. Visual-Tokens bleiben bei Skill 07. Skill 06 liefert nur strategische Richtungen (warm/cool, serif/sans, dense/spacious) in der `visual_direction`-Section von `brand-context.md` — konkrete Hex-Werte, Font-Familien und Scales werden ausschliesslich in Skill 07 (Brand Visual System) festgelegt. Kein Skill vor 07 schreibt eigene Hex-Werte oder Font-Namen in `brand-context.md`.
 
 ---
 
@@ -254,6 +256,7 @@ Vollständige Token-Liste in `artefact-templates.md` Teil 4.
 
 ## Changelog
 
+- **1.5 (April 2026):** Skill 07 "Brand Visual System" eingeführt. Skill 06 um "Visual Direction Tokens" in `brand-context.md` erweitert (strategische Richtungen: color_bias, type_character, imagery_direction, layout_rhythm, do_list, dont_list). Skill 00 nutzt `design-md-generator` zur 10-Abschnitte-Dokumentation jedes gescrapten Wettbewerbers (Schritt 5.7, optional analog Miro-MCP). Neue Verhaltensregel 13: Visual-Tokens bleiben bei Skill 07; Skill 06 liefert nur Richtungen, keine Hex-Werte oder Font-Namen.
 - **1.4 (April 2026):** Memory-Prinzip eingeführt. Neue Section "Memory-Prinzip" mit fünf Regeln. Verhaltensregeln 10–12 ergänzt (Memory schreiben, Re-Run lesen, nie in Deliverable). Determinismus-Präzisierung aufgenommen. `memory.md` in Projektstruktur ergänzt. Referenz auf `artefact-templates.md` Teil 7.
 - **1.3 (April 2026):** Firecrawl entfernt, Playwright MCP als Standard, `artefact-templates.md` als dritte Single Source of Truth ergänzt, Miro-Spiegel-Prinzip explizit dokumentiert, Schreib-Regel 9 (keine eigenen Tokens) ergänzt.
 - **1.2 (April 2026):** Modell-Routing und Sub-Agent-Strategie eingeführt.

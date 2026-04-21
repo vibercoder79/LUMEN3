@@ -4,43 +4,51 @@
 
 LUMEN³ führt durch den vollständigen Markenentwicklungsprozess: von der Wettbewerbsanalyse über Archetyp-Assessment und Neuromarketing-Trigger bis zum fertigen Brand Universe. Jeder Schritt ist dokumentiert, reproduzierbar und maschinenlesbar.
 
-**By:** [Owlist GmbH](https://www.owlist.ch) · **Version:** 2.1 · **April 2026** (Claude-Design-Integration)
+**By:** [Owlist GmbH](https://www.owlist.ch) · **Version:** 2.2 · **April 2026** (Brand Visual System)
 
 ---
 
 ## Was LUMEN³ ist — in einem Satz
 
-LUMEN³ ist **7 Claude-Code-Skills** in **3 Stufen** (Context, Signal, Resonance), die gemeinsam eine vollständige Brand Identity Library für bestehende oder neue Marken erstellen — mit wissenschaftlich begründeten Methoden, transparenten Quellen und deterministischem Scoring.
+LUMEN³ ist **8 Claude-Code-Skills** in **3 Stufen** (Context, Signal, Resonance) plus einem **Visual System Skill**, die gemeinsam eine vollständige Brand Identity Library für bestehende oder neue Marken erstellen — mit wissenschaftlich begründeten Methoden, transparenten Quellen und deterministischem Scoring.
 
 ### Pipeline Flow
 
 ![LUMEN³ Pipeline Flow](diagrams/01-pipeline-flow.png)
 
-## Die 7 Skills
+## Die 8 Skills
 
 | Skill | Trigger | Dauer | Was er tut |
 |---|---|---|---|
-| **00 Creative Footprint** | `/lumen-competitive` | 60–120 Min | Wettbewerbsanalyse: 123 Datenpunkte in 5 Dimensionen (PESO+Asset) + 4 visuelle Analyse-Module |
+| **00 Creative Footprint** | `/lumen-competitive` | 60–120 Min | Wettbewerbsanalyse: 123 Datenpunkte in 5 Dimensionen (PESO+Asset) + 4 visuelle Analyse-Module + `DESIGN.md` pro Wettbewerber (v2.2) |
 | **01 Business Context** | `/lumen-business-context` | 60–90 Min | 40 Discovery-Fragen in 8 Blöcken |
 | **02 Brand Archetype** | `/lumen-archetype` | 30–45 Min | Fascinate (Hogshead) + 12 Archetypen (Pearson/Mark) |
 | **03 We Are / We Are Not** | `/lumen-interview` | 30–45 Min | 72 Adjektive in 4 Kategorien (Aaker + Meyerson) |
 | **04 Trigger Analyse** | `/lumen-trigger` | automatisch | Deterministisches Trigger-Scoring (Damasio, Zaltman) |
 | **05 Story & Identity** | `/lumen-story` | 40–60 Min | Golden Circle (Sinek) + Hedgehog (Collins) + Dante Labs + Neuro-Color (Haller) |
-| **06 Brand Universe** | `/lumen-universe` | automatisch | Synthese: 5 Deliverables + Miro Summary Frame |
+| **06 Brand Universe** | `/lumen-universe` | automatisch | Synthese: 5 Deliverables + Miro Summary Frame + `visual_direction` Tokens (v1.6) |
+| **07 Brand Visual System** | `/lumen-visual-system` | 60–120 Min | Forward-Engineering: Logo, Farb-/Typo-Tokens, Icons, Print & Digital Applications, `DESIGN.md` (v1.0, neu mit LUMEN³ v1.5) |
 
 Einstiegspunkt ist immer `/lumen-strategist` — der Orchestrator, der den Projekt-Zustand prüft und den nächsten sinnvollen Skill vorschlägt.
 
 ## Was am Ende entsteht
 
-Nach einem vollständigen Durchlauf liegen fünf Deliverables vor:
+Nach einem vollständigen Durchlauf inklusive Skill 07 liegen die strategischen + visuellen Deliverables vor:
 
 ![LUMEN³ Deliverables](diagrams/03-deliverables.png)
 
+**Aus Skill 06 (Strategie):**
 - **`brand-universe.md`** — das Stratege-Dokument
 - **`slides-brand-universe.md`** — 31-Slide Track-Deck für die Präsentation
-- **`brand-context.md`** — maschinenlesbarer Connector für nachgelagerte KI-Agents
+- **`brand-context.md`** — maschinenlesbarer Connector für nachgelagerte KI-Agents, inkl. `visual_direction`-Tokens
 - **`design-brief.md`** — strukturierter Design-System-Block (YAML) für **Claude Design**, Website Creator und Webflow
 - **`brand-guidelines.md`** — für Texter und interne Teams
+
+**Aus Skill 07 (Visual System, neu):**
+- **`07-visual-system.md`** — Narrativ: warum welche visuellen Entscheidungen
+- **`DESIGN.md`** — 10-Abschnitte-Format (abgeleitet vom externen Skill `design-md-generator`)
+- **`clients/[name]/assets/`** — Logo-Varianten (Wordmark, Horizontal, Stacked, White, Dark, Mono), Icon-System (App-Icon, Favicon, Silhouetten, 5 UI-Icons), Print (Briefbogen DE/EN, Visitenkarte, Email-Signatur, Rechnungs- und Proposal-Template), Digital (4 Key-Slides, Website-Hero editorial + technical, Social-Templates)
+- **`slides-visual-system.md`** — 9-Slide-Präsentation des Visual Systems
 
 ### Rendering mit Claude Design (ab 2026-04-17)
 
@@ -122,14 +130,15 @@ LUMEN3/
 │   └── analyze_page.py          ← SEO-/Marketing-Analyzer (MIT)
 │
 └── skills/
-    ├── 00-competitive-analysis.md    Creative Footprint v2.0
+    ├── 00-competitive-analysis.md    Creative Footprint v2.2
     ├── 00-datapoints.md              123 Datenpunkte
     ├── 01-business-context.md
     ├── 02-brand-archetype.md
     ├── 03-brand-interview.md
     ├── 04-trigger-analysis.md
     ├── 05-story-identity.md
-    ├── 06-brand-universe.md
+    ├── 06-brand-universe.md          Synthese + Visual Direction Tokens
+    ├── 07-brand-visual-system.md     Brand Visual System (neu, v1.0)
     ├── lumen-strategist.md           Orchestrator
     ├── lumen-bootstrap.md
     └── lumen-learn.md                Helper für Mustererkennung

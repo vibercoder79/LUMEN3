@@ -37,8 +37,10 @@ description: >
   an Claude Design (Anthropic, seit 2026-04-17) übergeben — erzeugt
   PPTX/PDF/Canva im Corporate-Design automatisch.
 
-  Version 1.5 — April 2026 (Claude-Design-Integration)
+  Version 1.6 — April 2026 (Visual Direction Tokens für Skill-07-Kopplung)
 ---
+
+<!-- v1.1 (2026-04-21): Visual Direction Tokens ergänzt für Skill-07-Kopplung. Keine Hex-Werte, nur Richtungen. Siehe CHANGELOG in CLAUDE.md. -->
 
 # LUMEN³ — Brand Universe Document
 ## Finaler Deliverable des Brand Strategist
@@ -511,6 +513,19 @@ mit definierter YAML-Struktur im Teil B.
 Maschinenlesbarer Connector als YAML-Frontmatter. Nachgelagerte
 Marketing-Skills lesen diese Datei automatisch als Shared Context.
 
+<!--
+  WICHTIG — Abgrenzung zu Skill 07:
+  Die Section "visual_direction" unten enthält NUR strategische Richtungen
+  (warm/cool, serif/sans, dense/spacious). Keine konkreten Hex-Werte, keine
+  konkreten Font-Namen, keine Scales — diese Konkretisierung ist Aufgabe
+  von Skill 07 (Brand Visual System). Siehe Verhaltensregel 13 in CLAUDE.md.
+
+  Hex-Hints zu Neuro-Color stehen weiterhin in der Section "neuro_color"
+  (aus Skill 05 B4) — das sind Farb-Richtungen aus der Neuro-Color-Analyse,
+  nicht das finale Farbsystem. Skill 07 übernimmt sie als Ankerpunkt und
+  baut daraus die Vollpalette.
+-->
+
 ```yaml
 ---
 brand_name: [Brand Name]
@@ -563,6 +578,31 @@ typography:
   headline_character: "[Beschreibung]"
   body_character: "[Beschreibung]"
   accent_character: "[Beschreibung]"
+
+# Visual Direction — strategische Richtungen für Skill 07.
+# NICHT Hex-Werte, NICHT Font-Namen, NICHT Scales — nur Richtungen.
+# Konkretisierung (Hex, Font-Familie, Scale, Komponenten) erfolgt in Skill 07.
+visual_direction:
+  color_bias: "[warm | cool | neutral | contrast-high | contrast-low]"
+  color_mood_keywords: ["[adj1]", "[adj2]", "[adj3]"]   # 3–5 Adjektive, z.B. "erdig, premium, ruhig"
+  type_character: "[serif | sans-geometric | sans-humanist | mono-accent | mixed]"
+  type_mood_keywords: ["[adj1]", "[adj2]", "[adj3]"]    # 3–5 Adjektive
+  imagery_direction:
+    mode: "[photography | illustration | abstract | mixed]"
+    description: "[1-Satz-Beschreibung der Bildsprache-Richtung]"
+  layout_rhythm: "[dense | spacious | editorial | technical-grid]"
+  do_list:
+    - "[Stichpunkt 1]"
+    - "[Stichpunkt 2]"
+    - "[Stichpunkt 3]"
+    - "[Stichpunkt 4]"
+    - "[Stichpunkt 5]"
+  dont_list:
+    - "[Stichpunkt 1]"
+    - "[Stichpunkt 2]"
+    - "[Stichpunkt 3]"
+    - "[Stichpunkt 4]"
+    - "[Stichpunkt 5]"
 
 sources:
   methodology: lumen3/methodology.md

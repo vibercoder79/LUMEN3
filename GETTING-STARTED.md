@@ -186,7 +186,7 @@ lumen3/
 ├── trigger-mapping.md        ← Scoring-Regeln
 ├── README.md                 ← Einführung
 └── .claude/
-    └── skills/               ← die 9 LUMEN³-Skills
+    └── skills/               ← die 10 LUMEN³-Skills
         ├── lumen-strategist/
         ├── 00-competitive-analysis/
         ├── 01-business-context/
@@ -195,6 +195,7 @@ lumen3/
         ├── 04-trigger-analysis/
         ├── 05-story-identity/
         ├── 06-brand-universe/
+        ├── 07-brand-visual-system/  (neu, v1.5)
         └── lumen-learn/
 ```
 
@@ -298,7 +299,7 @@ Sobald Claude Code gestartet ist, tippe:
 /help
 ```
 
-Claude zeigt dir eine Liste aller verfügbaren Skills. Wenn du dort `lumen-strategist`, `lumen-competitive`, `lumen-business-context`, `lumen-archetype`, `lumen-interview`, `lumen-trigger`, `lumen-story` und `lumen-universe` siehst, sind die Skills korrekt geladen.
+Claude zeigt dir eine Liste aller verfügbaren Skills. Wenn du dort `lumen-strategist`, `lumen-competitive`, `lumen-business-context`, `lumen-archetype`, `lumen-interview`, `lumen-trigger`, `lumen-story`, `lumen-universe` und `lumen-visual-system` siehst, sind die Skills korrekt geladen.
 
 Falls die Liste leer ist oder die LUMEN-Skills fehlen: Schließ Claude Code, stelle sicher, dass du im richtigen Verzeichnis bist (`pwd` auf Mac, `cd` auf Windows zeigt dir das aktuelle Verzeichnis), und starte Claude Code erneut.
 
@@ -422,8 +423,9 @@ Ein typischer Ablauf für einen vollständigen Erstdurchlauf:
 5. `/lumen-trigger` — automatisches Trigger-Scoring (5 Min)
 6. `/lumen-story` — Golden Circle + Hedgehog + Dante + Neuro-Color (40–60 Min)
 7. `/lumen-universe` — automatische Brand-Universe-Synthese (10–15 Min)
+8. `/lumen-visual-system` — Forward-Engineering: Logo, Farb-/Typo-Tokens, Icons, Print, Digital, DESIGN.md (60–120 Min, optional aber empfohlen für vollständige Identity)
 
-**Gesamt-Zeit:** 3–5 Stunden für einen vollständigen Durchlauf. Du kannst jederzeit pausieren — die Session bleibt erhalten, solange die `.lumen-session`-Datei existiert.
+**Gesamt-Zeit:** 4–7 Stunden für einen vollständigen Durchlauf inklusive Visual System. Du kannst jederzeit pausieren — die Session bleibt erhalten, solange die `.lumen-session`-Datei existiert.
 
 \newpage
 
